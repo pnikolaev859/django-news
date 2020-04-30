@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+</head>
+<body>
+    <header style="margin-bottom: 64px; overflow: hidden;">
+        <nav>
+            <a href="/" class="brand">News</a>
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">Меню</label>
+
+            <div class="menu">
+                <a href="/" class="pseudo button">Главная</a>
+                <a href="/about" class="pseudo button">О проекте</a>
+                <a href="/admin" class="pseudo button">Админ</a>
+            </div>
+        </nav>
+    </header>
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>

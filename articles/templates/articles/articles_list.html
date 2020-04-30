@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load markdownify %}
+
+{% block title %}
+All News
+{% endblock %}
+
+{% block body %}
+    {% for article in object_list %}
+    <div>
+        <article class="card">
+            <header>
+                <a href="{{ article.id }}"><h2>{{ article.title }}</h2></a>
+            </header>
+            </p>{{ article.body |  markdownify | truncatewords:20 }} <a style="padding: 15px;" href="{{ article.id }}" class="card-link">Читать далее</a>
+            <p>{{ article.published }}</p>
+        </article>
+    </div>
+    {% endfor %}
+    {% include 'pagination.html' with page=page_obj %}
+{% endblock %}

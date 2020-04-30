@@ -1,0 +1,5 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "C:/Users/Skynet/AppData/Local/pypoetry/Cache/virtualenvs/news-HrcUBy9J-py3.8/Scripts/python"
+}

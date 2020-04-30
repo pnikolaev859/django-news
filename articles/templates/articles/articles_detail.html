@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load markdownify %}
+
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+{% block body %}
+<article class="card">
+    <header>
+        <h2>{{ article.title }}</h2>
+    </header>
+    <p>{{ article.body | markdownify }}</p>
+    <p>Опубликовано {{ article.published }}, автор {{ article.author }}</p>
+</article>
+{% with comments.count as total_comments %}
+<h2>{{ total_comments }} комментарий</h2>
+{% endwith %}
+{% for comment in comments %}
+    <section>
+        {{ comment.author }}: {{ comment.body }}
+    </section>
+{% endfor %}
+
+{% if new_comment %}
+    <p>Ваш комментарий добавлен</p>
+{% else %}
+    <h2>Добавить комментарий</h2>
+    <form action="." method="POST">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Добавить"></p>
+    </form>
+{% endif %}
+{% endblock %}
